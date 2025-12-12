@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './proyecto.css';
 
-// --- 1. IMPORTACIÓN DE RECURSOS ---
-
-// Fondo General
 import fondoProyectos from '../assets/img/proyectos.jpg'; 
 
 import mf_0 from '../assets/img/Proyectos/MF.jpg';
@@ -12,7 +9,6 @@ import mf_2 from '../assets/img/Proyectos/MF2.png';
 import mf_3 from '../assets/img/Proyectos/MF3.jpg';
 
 // Imágenes del Proyecto F1 
-// (Ajusta la extensión .png o .jpg si es necesario según tus archivos)
 import f1_0 from '../assets/img/Proyectos/F1.jpg';
 import f1_1 from '../assets/img/Proyectos/F1.1.jpg';
 import f1_2 from '../assets/img/Proyectos/F1.2.jpg';
@@ -38,9 +34,7 @@ import s2 from '../assets/img/Proyectos/S2.png';
 import s3 from '../assets/img/Proyectos/S3.png';
 import s4 from '../assets/img/Proyectos/S4.png';
 
-// --- 2. DATA DE LOS PROYECTOS ---
 const projectsData = [
-  // PROYECTO 1
   {
     id: 1,
     title: "Metal Family Fan Page",
@@ -56,10 +50,9 @@ const projectsData = [
     buttonLabel: "Visitar Repositorio",
 images: [mf_0, mf_1, mf_2, mf_3]
   },
-  // PROYECTO 2 (Fórmula 1 - Con Imágenes)
   {
     id: 2,
-    title: "Reproductores Formula 1",
+    title: "Reproductor de Formula 1",
     description: "Visualizador interactivo multimedia diseñado para los aficionados de la F1. Presenta un catálogo detallado de la temporada 2025, incluyendo fichas técnicas de los autos, biografías de pilotos y datos de escuderías. La aplicación destaca por su integración de recursos multimedia, permitiendo la reproducción fluida de video y audio para una experiencia inmersiva del deporte motor.",
     technologies: [
       { name: "React Native", class: "react-native" },
@@ -69,10 +62,8 @@ images: [mf_0, mf_1, mf_2, mf_3]
     ],
     repoLink: "https://github.com/jesuarman02/App-Moviles---Aplicacion-de-Musica.git",
     buttonLabel: "Visitar Repositorio",
-    // Aquí asignamos las imágenes importadas arriba
     images: [f1_0, f1_1, f1_2, f1_3] 
   },
-  // PROYECTO 3
   {
     id: 3,
     title: "Metal Family Web Platform",
@@ -87,7 +78,6 @@ images: [mf_0, mf_1, mf_2, mf_3]
     buttonLabel: "Visitar Sitio Web",
 images: [r1, r2, r3, r4]
   },
-  // PROYECTO 4
   {
     id: 4,
     title: "Dragon Ball: Battle Game",
@@ -102,7 +92,6 @@ images: [r1, r2, r3, r4]
     buttonLabel: "Jugar Ahora",
 images: [d1, d2, d3, d4]
   },
-  // PROYECTO 5
   {
     id: 5,
     title: "Infotec: AI PDF Converter",
@@ -114,10 +103,9 @@ images: [d1, d2, d3, d4]
       { name: "Bootstrap 5", class: "bootstrap" }
     ],
     repoLink: "https://github.com/jesuarman02/CONVERTIRPDF.git",
-    buttonLabel: "Ver Código Fuente",
+    buttonLabel: "Visitar Repositorio",
 images: [i1, i2, i3, i4]
   },
-  // PROYECTO 6
   {
     id: 6,
     title: "Clínica Santa María",
@@ -128,39 +116,32 @@ images: [i1, i2, i3, i4]
       { name: "HTML5 / CSS3", class: "html-css" },
       { name: "Sistema de Citas", class: "game" } 
     ],
-    repoLink: "#", // PENDIENTE: Agrega aquí tu link real
+    repoLink: "https://github.com/jesuarman02/Proyecto-Final-Suits.git", 
     buttonLabel: "Ver Proyecto",
 images: [s1, s2, s3, s4]  }
 ];
 
-// --- 3. SUB-COMPONENTE: TARJETA INDIVIDUAL ---
-// Este componente maneja la lógica de visualización y el carrusel por separado para cada proyecto
 const ProjectCard = ({ project, index }) => {
   const isAlternate = index % 2 !== 0;
   
-  // Estado para controlar qué imagen se muestra (empieza en la 0)
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
-  // EFECTO: Cambio automático cada 2 segundos
   useEffect(() => {
-    // Solo activamos el intervalo si hay MÁS de 1 imagen en el array
     if (project.images && project.images.length > 1) {
       const interval = setInterval(() => {
         setCurrentImgIndex((prevIndex) => (prevIndex + 1) % project.images.length);
-      }, 3000); // 2000ms = 2 segundos
+      }, 5000); 
 
-      return () => clearInterval(interval); // Limpiamos el reloj al desmontar
+      return () => clearInterval(interval); 
     }
   }, [project.images]);
 
-  // FUNCIÓN: Cambio manual al dar click
   const handleImageClick = () => {
     if (project.images && project.images.length > 1) {
       setCurrentImgIndex((prevIndex) => (prevIndex + 1) % project.images.length);
     }
   };
 
-  // Determinar la imagen actual
   const currentImage = project.images && project.images.length > 0 
     ? project.images[currentImgIndex] 
     : null;
@@ -170,12 +151,11 @@ const ProjectCard = ({ project, index }) => {
       className={`project-card ${isAlternate ? 'alternate-layout' : ''}`}
       style={{ 
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${fondoProyectos})`,
-        animationDelay: `${index * 0.2}s` // Efecto cascada en la entrada
+        animationDelay: `${index * 0.2}s` 
       }} 
     >
       <div className="project-content">
         
-        {/* --- Lado Texto --- */}
         <div className="text-section">
           <h2 className="project-title">{project.title}</h2>
           
@@ -203,7 +183,6 @@ const ProjectCard = ({ project, index }) => {
           </a>
         </div>
 
-        {/* --- Lado Imagen (Con lógica de carrusel) --- */}
         <div className="image-section">
           {currentImage ? (
             <div className="img-container-mobile" onClick={handleImageClick}>
@@ -213,7 +192,6 @@ const ProjectCard = ({ project, index }) => {
                 className="project-img mobile-fit" 
               />
               
-              {/* Indicador de fotos (ej: 1 / 4) solo si hay varias */}
               {project.images.length > 1 && (
                 <span className="img-counter">
                   {currentImgIndex + 1} / {project.images.length}
@@ -232,7 +210,6 @@ const ProjectCard = ({ project, index }) => {
   );
 };
 
-// --- 4. COMPONENTE PRINCIPAL ---
 const Proyecto = () => {
   return (
     <section className="projects-section">

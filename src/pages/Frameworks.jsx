@@ -2,14 +2,12 @@ import React from 'react';
 import './Frameworks.css';
 import { HiMiniArrowDownTray } from "react-icons/hi2";
 
-// Importación de imágenes
 import computerBg from '../assets/img/computer.jpg';
 import reactIcon from '../assets/img/react.png';
 import bootstrapIcon from '../assets/img/bootstrap.png';
 
 const Frameworks = () => {
 
-    // Función para bajar a la sección final: Proyectos
 const handleScrollToBD = () => {
         const bdSection = document.getElementById('bd');
         if (bdSection) {
@@ -28,13 +26,11 @@ const handleScrollToBD = () => {
             className="fw-container"
             style={{ backgroundImage: `url(${computerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
-            {/* Capa oscura */}
             <div className="fw-overlay"></div>
 
             <div className="fw-content">
                 <h2 className="fw-title">Frameworks & Librerías</h2>
 
-                {/* Contenedor Flex para las tarjetas */}
                 <div className="fw-grid">
                     {frameworks.map((fw, index) => (
                         <div className="fw-card" key={index}>
@@ -47,7 +43,6 @@ const handleScrollToBD = () => {
                     ))}
                 </div>
 
-                {/* Flecha hacia Proyectos */}
 <div className="fw-icon-wrapper" onClick={handleScrollToBD}>
                 <HiMiniArrowDownTray className="fw-arrow-icon" />
             </div>

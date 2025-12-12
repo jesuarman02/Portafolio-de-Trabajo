@@ -2,14 +2,12 @@ import React from 'react';
 import './Sistemas.css';
 import { HiMiniArrowDownTray } from "react-icons/hi2";
 
-// Importación de imágenes
-import frameworksBg from '../assets/img/frameworks.jpg'; // Usamos el fondo que pediste
+import frameworksBg from '../assets/img/frameworks.jpg'; 
 import windowsIcon from '../assets/img/windows.png';
 import linuxIcon from '../assets/img/linux.png';
 
 const Sistemas = () => {
 
-    // Función para bajar finalmente a la sección de Proyectos
     const handleScrollToProyectos = () => {
         const proyectosSection = document.getElementById('proyectos');
         if (proyectosSection) {
@@ -21,12 +19,12 @@ const Sistemas = () => {
         { 
             name: 'Windows', 
             img: windowsIcon, 
-            animClass: 'slide-left' // Clase para animación desde la izquierda
+            animClass: 'slide-left' 
         },
         { 
             name: 'Linux', 
             img: linuxIcon, 
-            animClass: 'slide-right' // Clase para animación desde la derecha
+            animClass: 'slide-right' 
         },
     ];
 
@@ -54,7 +52,6 @@ const Sistemas = () => {
                     ))}
                 </div>
 
-                {/* Flecha final hacia Proyectos */}
                 <div className="os-icon-wrapper" onClick={handleScrollToProyectos}>
                     <HiMiniArrowDownTray className="os-arrow-icon" />
                 </div>

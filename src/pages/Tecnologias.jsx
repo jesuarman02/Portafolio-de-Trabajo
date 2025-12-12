@@ -2,7 +2,6 @@ import React from 'react';
 import './Tecnologias.css';
 import { HiMiniArrowDownTray } from "react-icons/hi2";
 
-// Importación de imágenes
 import laptopBg from '../assets/img/laptop.jpg';
 import gitIcon from '../assets/img/git.png';
 import githubIcon from '../assets/img/github.png';
@@ -10,7 +9,6 @@ import npmIcon from '../assets/img/npm.png';
 
 const Tecnologias = () => {
 
-    // Función para bajar a la siguiente sección (Proyectos)
 const handleScrollToFrameworks = () => {
         const nextSection = document.getElementById('frameworks');
         if (nextSection) {
@@ -36,11 +34,9 @@ const handleScrollToFrameworks = () => {
                 <h2 className="tech-title">Control y Gestión</h2>
                 <p className="tech-subtitle">Herramientas para el flujo de trabajo y versionado</p>
 
-                {/* Contenedor de las tarjetas */}
                 <div className="tech-grid">
                     {tools.map((tool, index) => (
                         <div className="tech-card" key={index}>
-                            {/* Contenedor de la imagen que rotará */}
                             <div className="icon-box">
                                 <img src={tool.img} alt={tool.name} className="rotating-icon" />
                             </div>
@@ -49,7 +45,6 @@ const handleScrollToFrameworks = () => {
                     ))}
                 </div>
 
-                {/* Flecha hacia Proyectos */}
             <div className="tech-icon-wrapper" onClick={handleScrollToFrameworks}>
                 <HiMiniArrowDownTray className="tech-arrow-icon" />
             </div>
