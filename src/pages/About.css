@@ -1,0 +1,90 @@
+/* src/pages/About.css */
+
+/* ------------------ ESTILOS BASE ------------------ */
+
+.about-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado Vertical */
+    align-items: center;     /* Centrado Horizontal */
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Capa oscura (más oscura que en Inicio para un look diferente) */
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Opacidad al 75% */
+    z-index: 1;
+}
+
+/* El contenido (texto e icono) */
+.about-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+    max-width: 900px;
+}
+
+.about-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.about-name {
+    font-size: 2.5rem; /* Tamaño base para móvil */
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.about-role {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #cccccc;
+}
+
+.about-bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 600px; /* Limita el ancho del texto largo */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-icon {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    /* Reutiliza la animación que definimos para Inicio */
+    animation: rebote 2s infinite; 
+}
+
+
+/* ------------------ RESPONSIVE: TABLET & PC ------------------ */
+
+@media (min-width: 768px) {
+    .about-title {
+        font-size: 2rem;
+    }
+    .about-name {
+        font-size: 3rem; /* Más grande en desktop */
+    }
+    .about-role {
+        font-size: 1.6rem;
+    }
+    .about-bio {
+        font-size: 1.2rem;
+    }
+}

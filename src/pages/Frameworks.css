@@ -1,0 +1,141 @@
+/* src/pages/Frameworks.css */
+
+.fw-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fw-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)); /* Gradiente elegante */
+    z-index: 1;
+}
+
+.fw-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.fw-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.fw-subtitle {
+    font-size: 1.2rem;
+    color: #aaaaaa;
+    margin-bottom: 60px;
+}
+
+/* --- GRID --- */
+.fw-grid {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    gap: 80px; /* Separación amplia entre React y Bootstrap */
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+/* --- TARJETAS (CARDS) --- */
+.fw-card {
+    background: rgba(255, 255, 255, 0.05); /* Muy sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 20px;
+    width: 250px;
+    transition: all 0.4s ease;
+    
+    /* ANIMACIÓN DE LEVITACIÓN (FLOAT) */
+    animation: levitar 4s ease-in-out infinite;
+}
+
+/* Para que no se muevan al mismo tiempo, retrasamos la animación del segundo */
+.fw-card:nth-child(2) {
+    animation-delay: 2s; 
+}
+
+/* Efecto al pasar el mouse */
+.fw-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-10px); /* Sube un poco más */
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); /* Resplandor azulado */
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.fw-icon-box {
+    margin-bottom: 20px;
+}
+
+.fw-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.fw-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.fw-desc {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-weight: 300;
+}
+
+/* --- DEFINICIÓN DE ANIMACIÓN LEVITAR --- */
+@keyframes levitar {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px); /* Sube 15px */
+    }
+    100% {
+        transform: translateY(0px); /* Baja */
+    }
+}
+
+/* --- FLECHA --- */
+.fw-icon-wrapper {
+    margin-top: 20px;
+}
+
+.fw-arrow-icon {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    animation: rebote 2s infinite;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .fw-grid {
+        gap: 30px;
+    }
+    .fw-card {
+        width: 100%; /* En celular ocupan el ancho disponible */
+        max-width: 300px;
+        padding: 20px;
+    }
+    .fw-img {
+        width: 80px;
+        height: 80px;
+    }
+}

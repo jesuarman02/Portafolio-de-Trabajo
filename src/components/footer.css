@@ -1,0 +1,129 @@
+/* src/components/footer.css */
+
+.footer-container {
+    width: 96%;
+    background-color: #050510; /* Color oscuro similar a la imagen */
+    color: white;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Importante: para que funcione con Scroll Snap si es necesario */
+    scroll-snap-align: end; 
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Separa izquierda y derecha */
+    align-items: center;
+    flex-wrap: wrap; /* Para que se adapte a móviles */
+    gap: 30px;
+}
+
+/* --- IZQUIERDA --- */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-icon {
+    color: #4db5ff; /* Azul cyan */
+    font-size: 2rem;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+/* --- DERECHA --- */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea todo a la derecha */
+    gap: 10px;
+}
+
+.contact-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.contact-link {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: white;
+}
+
+/* REDES SOCIALES */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Círculo */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Colores al pasar el mouse */
+.social-btn.whatsapp:hover {
+    background-color: #25D366;
+    border-color: #25D366;
+    transform: translateY(-3px);
+}
+
+.social-btn.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-color: transparent;
+    transform: translateY(-3px);
+}
+
+.social-btn.github:hover {
+    background-color: #333;
+    border-color: white;
+    transform: translateY(-3px);
+}
+
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center; /* Centrar en móvil */
+    }
+}

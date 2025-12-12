@@ -1,0 +1,159 @@
+/* src/pages/Sistemas.css */
+
+.os-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.os-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente con un tono morado/tecnológico para diferenciar */
+    background: linear-gradient(to top, rgba(20, 20, 40, 0.95), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.os-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.os-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.os-subtitle {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 60px;
+}
+
+/* --- GRID --- */
+.os-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+/* --- TARJETAS --- */
+.os-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Efecto vidrio esmerilado fuerte */
+    border-radius: 20px;
+    padding: 30px;
+    width: 200px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5); /* Borde superior brillante */
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.os-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.os-img-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.os-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.os-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.os-desc {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* --- ANIMACIONES DE ENTRADA (Slide In) --- */
+
+.slide-left {
+    /* Viene desde la izquierda */
+    animation: slideInLeft 1.5s ease-out forwards;
+    opacity: 0; /* Empieza invisible */
+}
+
+.slide-right {
+    /* Viene desde la derecha */
+    animation: slideInRight 1.5s ease-out forwards;
+    opacity: 0; /* Empieza invisible */
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px); /* Empieza 100px a la izquierda */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Llega a su sitio */
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px); /* Empieza 100px a la derecha */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Llega a su sitio */
+    }
+}
+
+/* --- FLECHA --- */
+.os-icon-wrapper {
+    margin-top: 30px;
+}
+
+.os-arrow-icon {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    animation: rebote 2s infinite;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .os-grid {
+        gap: 30px;
+    }
+    /* En móvil quitamos el desplazamiento lateral exagerado para que no descuadre */
+    .slide-left, .slide-right {
+        animation: fadeInUp 1.5s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}

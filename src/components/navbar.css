@@ -1,0 +1,132 @@
+/* src/components/navbar.css */
+
+/* --- BARRA FIJA (HEADER) --- */
+.header {
+    position: fixed; /* Siempre visible arriba */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Altura base */
+    z-index: 1000; /* Encima de todo */
+    transition: 0.4s ease-in; /* Suavidad al cambiar color */
+    background-color: transparent; /* Transparente al inicio */
+}
+
+/* Esta clase se agrega con JS al hacer scroll */
+.header-bg {
+    background-color: rgba(5, 5, 16, 0.95); /* Negro casi sólido */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    height: 70px; /* Se hace un poco más pequeña al bajar */
+    padding-top: 5px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1240px;
+    margin: auto;
+    height: 100%;
+    padding: 0 20px;
+}
+
+/* --- LOGO --- */
+.logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    color: #4db5ff; /* Azul cyan */
+    font-size: 2rem;
+}
+
+/* --- MENÚ DE ESCRITORIO --- */
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    padding: 0 15px;
+}
+
+.nav-item a {
+    color: #eee;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+    position: relative;
+}
+
+/* Efecto de linea debajo al pasar el mouse */
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #4db5ff;
+    transition: width 0.3s;
+}
+
+.nav-item a:hover::after {
+    width: 100%;
+}
+
+.nav-item a:hover {
+    color: #4db5ff;
+}
+
+/* --- ICONO HAMBURGUESA --- */
+.hamburger {
+    display: none; /* Oculto por defecto en PC */
+    cursor: pointer;
+}
+
+/* ------------------ RESPONSIVE (MÓVIL Y TABLET) ------------------ */
+
+@media screen and (max-width: 960px) {
+    /* Mostramos el icono de hamburguesa */
+    .hamburger {
+        display: block;
+        z-index: 1001; /* Encima del menú lateral */
+    }
+
+    /* Ocultamos el menú normal y lo convertimos en lateral */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Lo escondemos a la derecha fuera de pantalla */
+        width: 70%; /* Que ocupe el 70% de la pantalla */
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro solido */
+        backdrop-filter: blur(10px);
+        flex-direction: column; /* Lista vertical */
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s ease-in-out; /* Animación de entrada */
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* Clase activa cuando se da click (Entra el menú) */
+    .nav-menu.active {
+        right: 0; /* Se mueve a la vista (posición 0) */
+    }
+
+    .nav-item {
+        margin: 2rem 0;
+    }
+
+    .nav-item a {
+        font-size: 1.5rem; /* Letra más grande en móvil */
+    }
+}

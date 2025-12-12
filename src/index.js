@@ -1,0 +1,11 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css'; // Tus estilos globales
+import App from './App'; // Importa el componente App (que vamos a crear abajo)
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

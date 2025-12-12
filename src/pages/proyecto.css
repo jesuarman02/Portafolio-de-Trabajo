@@ -1,0 +1,262 @@
+/* Contenedor general de la sección */
+.projects-section {
+  width: 96%;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #050505; /* Fondo oscuro detrás de las tarjetas */
+}
+
+.section-title {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.projects-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Espacio entre un proyecto y otro */
+}
+
+/* --- TARJETA DEL PROYECTO (Con el fondo png) --- */
+.project-card {
+  width: 92%;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 40px;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Columna Texto */
+.text-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.project-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+/* Etiquetas de Tecnologías */
+.tech-stack {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.tech-badge {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: default;
+}
+
+/* Colores de las Tecnologías */
+.react-native { background-color: #20232a; color: #61dafb; border: 1px solid #61dafb; }
+.expo { background-color: #ffffff; color: #000000; border: 1px solid #ccc; }
+.toast { background-color: #fca130; color: #fff; border: 1px solid #fca130; }
+.mongo { background-color: #13aa52; color: #fff; border: 1px solid #13aa52; }
+.api { background-color: #e91e63; color: #fff; border: 1px solid #e91e63; }
+/* Puedes agregar más aquí (.php, .js, etc) */
+
+/* Separador y Botón */
+.separator {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #444, transparent);
+  margin-bottom: 25px;
+}
+
+.visit-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 2px solid #00aaff;
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background: rgba(0, 170, 255, 0.1);
+}
+
+.visit-btn:hover {
+  background-color: #00aaff;
+  color: white;
+  box-shadow: 0 0 15px #00aaff;
+  transform: translateY(-2px);
+}
+
+/* Columna Imagen */
+.image-section {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px dashed #555;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  font-weight: bold;
+}
+/* --- Lógica para invertir el orden (Imagen Izquierda, Texto Derecha) --- */
+.project-card.alternate-layout .project-content {
+  flex-direction: row-reverse; /* Esto invierte el orden horizontalmente */
+}
+/* Nuevos estilos para el juego */
+.css-adv { background-color: #2965f1; color: white; border: 1px solid #2965f1; } /* Azul CSS oficial */
+.game { background-color: #9c27b0; color: white; border: 1px solid #9c27b0; }  
+ /* Morado Arcade */
+ /* Estilos para el proyecto Infotec */
+.python { background-color: #306998; color: #ffd43b; border: 1px solid #ffd43b; } /* Azul/Amarillo Python */
+.ai-llama { background-color: #d4af37; color: #000; border: 1px solid #fff; font-weight: 800; } /* Dorado IA */
+.ocr { background-color: #607d8b; color: white; border: 1px solid #ccc; }
+.bootstrap { background-color: #7952b3; color: white; border: 1px solid #7952b3; }
+/* Estilos para Clínica Santa María */
+.php { background-color: #777bb4; color: white; border: 1px solid #777bb4; } /* Violeta PHP */
+.mysql { background-color: #00758f; color: white; border: 1px solid #f29111; } /* Azul MySQL */
+.html-css { background-color: #e34c26; color: white; border: 1px solid #e34c26; } /* Naranja HTML */
+/* Ajuste para celular: siempre columna invertida (imagen arriba) */
+/* --- ANIMACIONES --- */
+
+/* 1. Definimos el movimiento de entrada (de abajo hacia arriba suave) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Empieza 30px más abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Termina en su lugar original */
+  }
+}
+
+/* 2. Aplicamos la animación base a la tarjeta */
+.project-card {
+  /* La animación dura 0.6 segundos, es suave (ease-out) y se queda en el estado final (forwards) */
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0; /* Empieza invisible para que la animación lo haga aparecer */
+  
+  /* Transición para el efecto hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* 3. Efecto HOVER (Levitación sutil) */
+.project-card:hover {
+  transform: translateY(-7px); /* Se levanta un poco */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); /* La sombra crece */
+  border-color: rgba(255, 255, 255, 0.4); /* El borde brilla un poco más */
+}
+
+/* Opcional: Que la imagen de la derecha también haga un pequeño zoom al pasar el mouse */
+.project-card:hover .project-img {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+@media (max-width: 768px) {
+  .project-card.alternate-layout .project-content {
+    flex-direction: column-reverse; 
+  }
+}
+
+/* --- Nuevos colores para las tecnologías de F1 --- */
+.media { background-color: #e10600; color: #fff; border: 1px solid #e10600; } /* Rojo F1 */
+.assets { background-color: #607d8b; color: #fff; border: 1px solid #fff; }
+
+/* Responsive para celular */
+@media (max-width: 768px) {
+  .project-content {
+    flex-direction: column-reverse; /* Imagen arriba, texto abajo en celular si prefieres, o quita esta linea */
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+/* --- Ajustes para Capturas Móviles (F1, App Metal Family) --- */
+
+.img-container-mobile {
+  position: relative;
+  cursor: pointer; /* Manita para indicar que se puede dar click */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px; /* Altura fija para mantener uniformidad */
+}
+
+/* Esta clase hace que la imagen no se recorte, sino que se ajuste (contain) */
+.mobile-fit {
+  width: auto;
+  height: 100%;
+  max-height: 400px;
+  object-fit: contain; /* Mágico: Muestra la foto entera del cel sin recortar */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease;
+}
+
+.img-container-mobile:active .mobile-fit {
+  transform: scale(0.98); /* Pequeño efecto de click */
+}
+
+/* Contador de fotos (1/4) */
+.img-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  pointer-events: none;
+}

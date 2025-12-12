@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth; /* Habilita el scroll suave en general */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* ------------------ SCROLL SNAP MAGIC ------------------ */
+
+/* El contenedor que fuerza el anclaje a las secciones */
+.main-scroll-snap-container {
+    height: 100vh; /* Ocupa toda la pantalla */
+    overflow-y: scroll; /* Permite el scroll vertical */
+    scroll-snap-type: y mandatory; /* Habilita el snap forzoso en el eje Y */
+}
+
+/* Regla para cada sección (Inicio, About, Proyectos) */
+/* Deben coincidir con los contenedores principales de tus JSX */
+.main-scroll-snap-container > section {
+    scroll-snap-align: start; /* Ancla la sección al inicio de la ventana */
+}
